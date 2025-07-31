@@ -6,7 +6,7 @@
     <title>ICISCT- 2026 -International Conference on Intelligent Systems, Computing and Communication Technologies</title>
     <link href="logo.jpg" rel="icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             /* Enhanced Professional Color Palette */
@@ -27,6 +27,16 @@
             --bg-glass: rgba(255, 255, 255, 0.1);
             --border-color: #e2e8f0;
             --border-accent: #fbbf24;
+            
+            /* Classical About Section Colors */
+            --about-primary: #2c3e50;
+            --about-secondary: #34495e;
+            --about-accent: #8b4513;
+            --about-text: #2f3e46;
+            --about-bg: #fafbfc;
+            --about-border: #d4d4d8;
+            --about-shadow: rgba(0, 0, 0, 0.08);
+            --about-highlight: #f8f9fa;
             
             /* Enhanced Gradients */
             --gradient-primary: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%);
@@ -51,6 +61,12 @@
             --shadow-purple: 0 20px 40px -5px rgba(124, 58, 237, 0.3);
             --shadow-pink: 0 20px 40px -5px rgba(236, 72, 153, 0.3);
             --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            --shadow-about: 0 30px 60px -12px rgba(0, 0, 0, 0.15);
+            
+            /* Classical About Shadows */
+            --shadow-classical: 0 4px 20px rgba(44, 62, 80, 0.12);
+            --shadow-classical-lg: 0 8px 30px rgba(44, 62, 80, 0.15);
+            --shadow-classical-inset: inset 0 2px 4px rgba(0, 0, 0, 0.06);
         }
 
         [data-theme="dark"] {
@@ -66,6 +82,16 @@
             --border-accent: #92400e;
             --gradient-subtle: linear-gradient(135deg, #1e293b 0%, #334155 100%);
             --gradient-glass: linear-gradient(135deg, rgba(15,23,42,0.1) 0%, rgba(15,23,42,0.05) 100%);
+            
+            /* Dark mode classical about colors */
+            --about-primary: #e2e8f0;
+            --about-secondary: #cbd5e1;
+            --about-accent: #d4a574;
+            --about-text: #f1f5f9;
+            --about-bg: #1e293b;
+            --about-border: #374151;
+            --about-shadow: rgba(0, 0, 0, 0.3);
+            --about-highlight: #334155;
         }
 
         * {
@@ -88,7 +114,7 @@
     	    color: var(--text-primary);
 	}
 
-        /* Header Image Above Navbar */
+        /* Enhanced Header Image Above Navbar - Responsive */
         .header-image {
             width: 100%;
             height: auto;
@@ -96,6 +122,34 @@
             position: relative;
             z-index: 999;
             margin-bottom: 0;
+            object-fit: cover;
+            border-radius: 0 0 20px 20px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Desktop: Large header image */
+        @media (min-width: 10px) {
+            .header-image {
+                height: 160px;
+                object-fit: cover;
+            }
+        }
+
+        /* Tablet: Medium header image */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .header-image {
+                height: 150px;
+                object-fit: cover;
+            }
+        }
+
+        /* Mobile: Smaller header image */
+        @media (max-width: 767px) {
+            .header-image {
+                height: 120px;
+                object-fit: cover;
+                border-radius: 0 0 15px 15px;
+            }
         }
 
         /* AI Chat Widget Styles - Compact & Sleek */
@@ -906,6 +960,7 @@
             text-align: right;
         }
 
+        /* Reverted Hero Title to Original Styling */
         .hero h1 {
             font-family: 'Playfair Display', serif;
             font-size: 2.8rem;
@@ -1209,6 +1264,232 @@
             scale: 0 1;
         }
 
+        /* Classical Professional About Section - Complete Redesign */
+        .classical-about-section {
+            background: var(--about-bg);
+            border: 2px solid var(--about-border);
+            border-radius: 0;
+            padding: 4rem 3.5rem;
+            margin: 4rem 0;
+            box-shadow: var(--shadow-classical-lg);
+            position: relative;
+            overflow: visible;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: classicalAboutReveal 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+        }
+
+        /* Classical Header with Elegant Typography */
+        .classical-about-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .classical-about-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--about-primary);
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+            position: relative;
+            line-height: 1.3;
+        }
+
+        .classical-about-subtitle {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.1rem;
+            color: var(--about-secondary);
+            font-style: italic;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        /* Ornamental Dividers */
+        .classical-divider {
+            width: 150px;
+            height: 2px;
+            background: var(--about-accent);
+            margin: 2rem auto;
+            position: relative;
+        }
+
+        .classical-divider::before,
+        .classical-divider::after {
+            content: '';
+            position: absolute;
+            top: -3px;
+            width: 8px;
+            height: 8px;
+            background: var(--about-accent);
+            border-radius: 50%;
+        }
+
+        .classical-divider::before {
+            left: -10px;
+        }
+
+        .classical-divider::after {
+            right: -10px;
+        }
+
+        /* Classical Content Layout */
+        .classical-content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            position: relative;
+        }
+
+        .classical-paragraph {
+            font-family: 'Crimson Text', serif;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--about-text);
+            text-align: justify;
+            text-indent: 2rem;
+            margin-bottom: 2rem;
+            padding: 2rem 2.5rem;
+            background: white;
+            border: 1px solid var(--about-border);
+            box-shadow: var(--shadow-classical-inset);
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            transform: translateX(-20px);
+            animation: classicalParagraphReveal 0.8s ease forwards;
+        }
+
+        [data-theme="dark"] .classical-paragraph {
+            background: var(--about-highlight);
+            border-color: var(--about-border);
+        }
+
+        .classical-paragraph:nth-child(1) { animation-delay: 0.4s; }
+        .classical-paragraph:nth-child(2) { animation-delay: 0.6s; }
+        .classical-paragraph:nth-child(3) { animation-delay: 0.8s; }
+
+        .classical-paragraph::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--about-accent);
+            transform: scaleY(0);
+            transition: transform 0.5s ease;
+            transform-origin: bottom;
+        }
+
+        .classical-paragraph:hover::before {
+            transform: scaleY(1);
+        }
+
+        .classical-paragraph:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-classical);
+            border-color: var(--about-accent);
+        }
+
+        /* Elegant Quote Mark */
+        .classical-paragraph:first-child::after {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4rem;
+            color: var(--about-accent);
+            opacity: 0.3;
+            line-height: 1;
+        }
+
+        /* Classical Statistics or Highlights */
+        .classical-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--about-border);
+        }
+
+        .classical-highlight-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--about-highlight);
+            border: 1px solid var(--about-border);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: classicalHighlightReveal 0.6s ease forwards;
+            position: relative;
+        }
+
+        .classical-highlight-item:nth-child(1) { animation-delay: 1.0s; }
+        .classical-highlight-item:nth-child(2) { animation-delay: 1.1s; }
+        .classical-highlight-item:nth-child(3) { animation-delay: 1.2s; }
+
+        .classical-highlight-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-classical);
+            border-color: var(--about-accent);
+        }
+
+        .classical-highlight-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--about-accent);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .classical-highlight-text {
+            font-family: 'Crimson Text', serif;
+            font-size: 0.95rem;
+            color: var(--about-secondary);
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Classical Animations */
+        @keyframes classicalAboutReveal {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes classicalParagraphReveal {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes classicalHighlightReveal {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Enhanced Conference Highlights with Glow Effects */
         .highlights-grid {
             display: grid;
@@ -1472,7 +1753,7 @@
             line-height: 1.5;
         }
 
-        /* Organizing Committee Section - Separate Sections */
+        /* Organizing Committee Section - Enhanced with New Subsections */
         .organizing-committee-container {
             margin-top: 3rem;
         }
@@ -1503,16 +1784,24 @@
             border-radius: 2px;
         }
 
-        .keynote-section .committee-section-title::after {
+        .patrons-section .committee-section-title::after {
             background: var(--gradient-primary);
         }
 
-        .coordinators-section .committee-section-title::after {
+        .conference-chair-section .committee-section-title::after {
             background: var(--gradient-purple);
         }
 
-        .technical-section .committee-section-title::after {
+        .convener-section .committee-section-title::after {
             background: var(--gradient-tertiary);
+        }
+
+        .coordinators-section .committee-section-title::after {
+            background: var(--gradient-secondary);
+        }
+
+        .technical-section .committee-section-title::after {
+            background: var(--gradient-pink);
         }
 
         .speakers-grid {
@@ -1622,7 +1911,7 @@
             font-size: 0.8rem;
         }
 
-        /* Technical Team Cards with Enhanced Effects */
+        /* Technical Team Cards with Enhanced Effects - All User Icons */
         .technical-team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 280px));
@@ -1658,6 +1947,14 @@
         .tech-member-card:nth-child(2) { animation-delay: 0.2s; }
         .tech-member-card:nth-child(3) { animation-delay: 0.3s; }
         .tech-member-card:nth-child(4) { animation-delay: 0.4s; }
+        .tech-member-card:nth-child(5) { animation-delay: 0.5s; }
+        .tech-member-card:nth-child(6) { animation-delay: 0.6s; }
+        .tech-member-card:nth-child(7) { animation-delay: 0.7s; }
+        .tech-member-card:nth-child(8) { animation-delay: 0.8s; }
+        .tech-member-card:nth-child(9) { animation-delay: 0.9s; }
+        .tech-member-card:nth-child(10) { animation-delay: 1.0s; }
+        .tech-member-card:nth-child(11) { animation-delay: 1.1s; }
+        .tech-member-card:nth-child(12) { animation-delay: 1.2s; }
 
         .tech-member-card::before {
             content: '';
@@ -1862,7 +2159,7 @@
             transform: translateX(5px);
         }
 
-        /* Venue Section */
+        /* Venue Section with Enhanced Map */
         .venue-container {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(25px);
@@ -2001,7 +2298,7 @@
 
         .map-container iframe {
             width: 100%;
-            height: 300px;
+            height: 350px;
             border: none;
             transition: all 0.3s ease;
         }
@@ -2432,6 +2729,26 @@
                 font-size: 2.2rem;
             }
 
+            .classical-about-section {
+                padding: 2.5rem 1.5rem;
+                margin: 2rem 0;
+            }
+
+            .classical-about-title {
+                font-size: 2rem;
+            }
+
+            .classical-paragraph {
+                font-size: 1.1rem;
+                padding: 1.5rem 1rem;
+                text-indent: 1rem;
+            }
+
+            .classical-highlights {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
             .timeline-events {
                 flex-direction: column;
                 align-items: center;
@@ -2478,6 +2795,19 @@
                 padding: 2rem 1rem;
             }
 
+            .classical-about-section {
+                padding: 2rem 1rem;
+            }
+
+            .classical-about-title {
+                font-size: 1.8rem;
+            }
+
+            .classical-paragraph {
+                font-size: 1rem;
+                padding: 1rem 0.8rem;
+            }
+
             .btn {
                 padding: 0.8rem 1.5rem;
                 font-size: 0.9rem;
@@ -2487,7 +2817,7 @@
 </head>
 <body>
     <!-- Header Image Above Navbar -->
-    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/abovenavbarimg-2mk1764HobliP3nIR1A1ObOODGbvYg.png" alt="KITS Header" class="header-image">
+    <img src="header.jpg" alt="KITS Header" class="header-image">
 
     <!-- AI Chat Widget -->
     <div class="chat-widget">
@@ -2522,7 +2852,6 @@
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#highlights">Highlights</a></li>
                 <li><a href="#dates">Dates</a></li>
                 <li><a href="#speakers">Organizing Committee</a></li>
                 <li><a href="#topics">Topics</a></li>
@@ -2580,18 +2909,49 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- Classical Professional About Section - Complete Redesign -->
     <section class="section" id="about">
         <h2 class="section-title">About the Conference</h2>
-        <div class="about-content" style="margin-bottom: 20px; text-align: justify;">
-            <p>◉ The International Conference on Intelligent Systems, Computing and Communication Technologies (ICISCT) aims to bring together leading researchers, academicians, industry professionals, and innovators to exchange and share their experiences and research results on all aspects of intelligent systems, computing paradigms, and emerging communication technologies. This conference serves as a dynamic platform to foster collaboration, encourage interdisciplinary research, and explore transformative technologies that are shaping the future of smart and connected societies.</p>
-            <p>◉ With rapid advancements in areas such as artificial intelligence, machine learning, cloud and edge computing, IoT, 5G/6G communication, and cyber-physical systems, ICISCT provides a timely forum for discussing cutting-edge innovations and real-world applications. The conference will feature keynote addresses by eminent speakers, technical paper presentations, panel discussions, workshops, and opportunities for networking and collaboration.</p>
-            <p>◉ ICISCT welcomes contributions that address both theoretical advancements and practical solutions, paving the way toward sustainable, intelligent, and resilient systems for the digital era.</p>
+        <div class="classical-about-section">
+            <div class="classical-about-header">
+                <h3 class="classical-about-title">International Conference on Intelligent Systems, Computing and Communication Technologies</h3>
+                <p class="classical-about-subtitle">Fostering Excellence in Research and Innovation</p>
+                <div class="classical-divider"></div>
+            </div>
+
+            <div class="classical-content-wrapper">
+                <div class="classical-paragraph">
+                    The International Conference on Intelligent Systems, Computing and Communication Technologies (ICISCT) represents a distinguished academic gathering that brings together leading researchers, academicians, industry professionals, and innovators from around the globe. This prestigious conference serves as a premier platform for the exchange and dissemination of cutting-edge research findings, methodologies, and applications in the rapidly evolving domains of artificial intelligence, advanced computing paradigms, and next-generation communication technologies.
+                </div>
+
+                <div class="classical-paragraph">
+                    In an era marked by unprecedented technological advancement, ICISCT addresses the critical need for interdisciplinary collaboration and knowledge sharing. The conference encompasses a comprehensive spectrum of research areas, including machine learning algorithms, deep learning architectures, natural language processing, computer vision, big data analytics, cloud and edge computing, Internet of Things (IoT), 5G/6G wireless communications, and cyber-physical systems. Through rigorous peer review and scholarly discourse, ICISCT maintains the highest standards of academic excellence while fostering innovation that addresses real-world challenges.
+                </div>
+
+                <div class="classical-paragraph">
+                    The conference program features keynote presentations by internationally renowned experts, technical paper sessions showcasing original research contributions, panel discussions on emerging trends, and specialized workshops designed to facilitate hands-on learning and professional development. ICISCT is committed to advancing the frontiers of knowledge in intelligent systems and communication technologies, contributing to the development of sustainable, efficient, and transformative solutions that will shape the future of our digital society.
+                </div>
+            </div>
+
+            <!--<div class="classical-highlights">
+                <div class="classical-highlight-item">
+                    <span class="classical-highlight-number">40+</span>
+                    <span class="classical-highlight-text">Countries Represented</span>
+                </div>
+                <div class="classical-highlight-item">
+                    <span class="classical-highlight-number">200+</span>
+                    <span class="classical-highlight-text">Research Papers</span>
+                </div>
+                <div class="classical-highlight-item">
+                    <span class="classical-highlight-number">15+</span>
+                    <span class="classical-highlight-text">Expert Speakers</span>
+                </div>
+            </div>-->
         </div>
     </section>
 
     <!-- Conference Highlights -->
-    <section class="section fade-in" id="highlights">
+    <!--<section class="section fade-in" id="highlights">
         <h2 class="section-title">Conference Highlights</h2>
         <div class="highlights-grid">
             <div class="highlight-card">
@@ -2623,7 +2983,7 @@
                 <p>International participation from over 40 countries with diverse perspectives and collaborations.</p>
             </div>
         </div>
-    </section>
+    </section>-->
 
     <!-- Important Dates Timeline -->
     <section class="section fade-in" id="dates">
@@ -2636,7 +2996,7 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-event-content">
                             <h4>Paper Submission</h4>
-                            <div class="date">January 16 th, 2026</div>
+                            <div class="date">January 16th, 2026</div>
                             <p>Submit original research papers</p>
                         </div>
                     </div>
@@ -2644,7 +3004,7 @@
                         <div class="timeline-dot"></div>
                         <div class="timeline-event-content">
                             <h4>Review Results</h4>
-                            <div class="date">January 26th 2026</div>
+                            <div class="date">January 26th, 2026</div>
                             <p>Notification of acceptance</p>
                         </div>
                     </div>
@@ -2669,7 +3029,7 @@
                         <div class="timeline-event-content">
                             <h4>Conference</h4>
                             <div class="date">February 27th & 28th, 2026</div>
-                            <p>Three days of presentations</p>
+                            <p>Two days of presentations</p>
                         </div>
                     </div>
                 </div>
@@ -2677,126 +3037,213 @@
         </div>
     </section>
 
-    <!-- Organizing Committee Section - Separate Sections -->
+    <!-- Enhanced Organizing Committee Section with New Subsections -->
     <section class="section fade-in" id="speakers">
         <h2 class="section-title">Organizing Committee</h2>
         <div class="organizing-committee-container">
             
-            <!-- Keynote Speakers Section -->
-            <div class="committee-section keynote-section">
-                <h3 class="committee-section-title">Keynote Speakers</h3>
+            <!-- PATRONS Section -->
+            <div class="committee-section patrons-section">
+                <h3 class="committee-section-title">CHIEF PATRONS</h3>
                 <div class="speakers-grid">
                     <div class="speaker-card">
                         <div class="speaker-image">
-                            <img src="/placeholder.svg?height=200&width=250" alt="Keynote Speaker">
+                            <img src="chairmansirkits.jpg" alt="Patron">
                         </div>
                         <div class="speaker-content">
-                            <h4>XXX</h4>
-                            <div class="position">Keynote Speaker</div>
-                            <div class="affiliation">INDIA</div>
+                            <h4>Sri K. Subba Rao</h4>
+                            <div class="position">Chairman</div>
+                            <div class="affiliation">KITS, Guntur</div>
                         </div>
                     </div>
                     <div class="speaker-card">
                         <div class="speaker-image">
-                            <img src="/placeholder.svg?height=200&width=250" alt="Keynote Speaker">
+                            <img src="secretarysir.jpg" alt="Patron">
                         </div>
                         <div class="speaker-content">
-                            <h4>XXX</h4>
-                            <div class="position">Keynote Speaker</div>
-                            <div class="affiliation">INDIA</div>
-                        </div>
-                    </div>
-                    <div class="speaker-card">
-                        <div class="speaker-image">
-                            <img src="/placeholder.svg?height=200&width=250" alt="Keynote Speaker">
-                        </div>
-                        <div class="speaker-content">
-                            <h4>Dr. Arun Patel</h4>
-                            <div class="position">Keynote Speaker</div>
-                            <div class="affiliation">NIT Warangal, INDIA</div>
-                        </div>
-                    </div>
-                    <div class="speaker-card">
-                        <div class="speaker-image">
-                            <img src="/placeholder.svg?height=200&width=250" alt="Keynote Speaker">
-                        </div>
-                        <div class="speaker-content">
-                            <h4>Dr. Anitha Reddy</h4>
-                            <div class="position">Keynote Speaker</div>
-                            <div class="affiliation">BITS Pilani, INDIA</div>
+                            <h4>Sri K. Sekhar</h4>
+                            <div class="position">Secretary</div>
+                            <div class="affiliation">KITS, Guntur</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Coordinators Section -->
-            <div class="committee-section coordinators-section">
-                <h3 class="committee-section-title">Coordinators</h3>
+            <!-- CONFERENCE CHAIR Section -->
+            <div class="committee-section conference-chair-section">
+                <h3 class="committee-section-title">PATRONS</h3>
                 <div class="speakers-grid">
                     <div class="speaker-card">
                         <div class="speaker-image">
                             <img src="/placeholder.svg?height=200&width=250" alt="Conference Chair">
                         </div>
                         <div class="speaker-content">
+                            <h4>Dr. P. Babu</h4>
+                            <div class="position">PRINCIPAL, KITS</div>
+                            <div class="affiliation">KITS, Guntur</div>
+                        </div>
+                    </div>
+                    <div class="speakers-grid">
+                    <div class="speaker-card">
+                        <div class="speaker-image">
+                            <img src="/placeholder.svg?height=200&width=250" alt="Conference Chair">
+                        </div>
+                        <div class="speaker-content">
+                            <h4>Dr. K. Haribabu</h4>
+                            <div class="position">DIRECTOR - ACADEMICS, KITS</div>
+                            <div class="affiliation">KITS, Guntur</div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- CONVENER Section -->
+            <div class="committee-section convener-section">
+                <h3 class="committee-section-title">CONFERENCE CHAIR</h3>
+                <div class="speakers-grid">
+                    <div class="speaker-card">
+                        <div class="speaker-image">
+                            <img src="/placeholder.svg?height=200&width=250" alt="Convener">
+                        </div>
+                        <div class="speaker-content">
+                            <h4>Dr. G. Murali</h4>
+                            <div class="position">PROFESSOR & HEAD, DEPARTMENT OF AI & ML</div>
+                            <div class="affiliation">AI & ML Department, KITS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+  <!-- CONVENER Section -->
+            <div class="committee-section convener-section">
+                <h3 class="committee-section-title">CONVENER</h3>
+                <div class="speakers-grid">
+                    <div class="speaker-card">
+                        <div class="speaker-image">
+                            <img src="/placeholder.svg?height=200&width=250" alt="Convener">
+                        </div>
+                        <div class="speaker-content">
+                            <h4>Dr. S. Radhakrishnan</h4>
+                            <div class="position">PROFESSOR, AI & ML</div>
+                            <div class="affiliation">AI & ML Department, KITS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- CO-CONVENERS Section -->
+            <div class="committee-section coordinators-section">
+                <h3 class="committee-section-title">CO-CONVENERS</h3>
+                <div class="speakers-grid">
+                    <div class="speaker-card">
+                        <div class="speaker-image">
+                            <img src="/placeholder.svg?height=200&width=250" alt="Co-Convener">
+                        </div>
+                        <div class="speaker-content">
                             <h4>Dr. D. Hari Krishna</h4>
-                            <div class="position">Conference Chair</div>
-                            <div class="affiliation">KITS Guntur, INDIA</div>
+                            <div class="position">Associate Professor</div>
+                            <div class="affiliation">AI & ML, KITS Guntur</div>
                         </div>
                     </div>
                     <div class="speaker-card">
                         <div class="speaker-image">
-                            <img src="/placeholder.svg?height=200&width=250" alt="Program Chair">
+                            <img src="/placeholder.svg?height=200&width=250" alt="Co-Convener">
                         </div>
                         <div class="speaker-content">
-                            <h4>Dr. Lakshmi Narayana</h4>
-                            <div class="position">Program Chair</div>
-                            <div class="affiliation">KITS Guntur, INDIA</div>
-                        </div>
-                    </div>
-                    <div class="speaker-card">
-                        <div class="speaker-image">
-                            <img src="/placeholder.svg?height=200&width=250" alt="Local Coordinator">
-                        </div>
-                        <div class="speaker-content">
-                            <h4>Dr. Srinivas Kumar</h4>
-                            <div class="position">Local Coordinator</div>
-                            <div class="affiliation">KITS Guntur, INDIA</div>
+                            <h4>Dr. S. Nagendram</h4>
+                            <div class="position">Associate Professor</div>
+                            <div class="affiliation">AI & ML, KITS Guntur</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Technical Team Section -->
+            <!-- Technical Team Section with All User Icons -->
             <div class="committee-section technical-section">
                 <h3 class="committee-section-title">Technical Team</h3>
                 <div class="technical-team-grid">
                     <div class="tech-member-card">
                         <div class="tech-avatar">
-                            <i class="fas fa-user-cog"></i>
+                            <i class="fas fa-user"></i>
                         </div>
-                        <h4>Ravi Kumar</h4>
-                        <div class="role">Technical Lead</div>
+                        <h4>JOHN SAIDA MOHAMMAD</h4>
+                        <div class="role">Assistant Professor – AI & ML</div>
                     </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
-                            <i class="fas fa-server"></i>
+                            <i class="fas fa-user"></i>
                         </div>
-                        <h4>Sai Prasad</h4>
-                        <div class="role">Systems Admin</div>
+                        <h4>B. SRAVANTHI</h4>
+                        <div class="role">Assistant Professor – AI & ML</div>
                     </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
-                            <i class="fas fa-desktop"></i>
+                            <i class="fas fa-user"></i>
                         </div>
-                        <h4>Mahesh Babu</h4>
-                        <div class="role">Platform Manager</div>
+                        <h4>K. ARCHANA</h4>
+                        <div class="role">Assistant Professor – AI & ML</div>
                     </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
-                            <i class="fas fa-headset"></i>
+                            <i class="fas fa-user"></i>
                         </div>
-                        <h4>Divya Sri</h4>
-                        <div class="role">Technical Support</div>
+                        <h4>N. VIJAYALAKSHMI</h4>
+                        <div class="role">Assistant Professor – AI & ML</div>
+                    </div>
+                    <div class="tech-member-card">
+                        <div class="tech-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4>P. BHARGAVI</h4>
+                        <div class="role">Assistant Professor – AI & ML</div>
+                    </div>
+                    <div class="tech-member-card">
+                        <div class="tech-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4>A. SAI PAVANI</h4>
+                        <div class="role">Assistant Professor – AI & ML</div>
+                    </div>
+                    <div class="tech-member-card">
+                        <div class="tech-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4>K. BHANU SRI</h4>
+                        <div class="role">Assistant Professor – AI & ML</div>
+                    </div>
+                    <div class="tech-member-card">
+                        <div class="tech-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4>E. PADMAVATHI</h4>
+                        <div class="role">Assistant Professor – AI & ML</div>
+                    </div>
+                    <div class="tech-member-card">
+                        <div class="tech-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4>CH. KRISHNAVENI</h4>
+                        <div class="role">Assistant Professor – AI & ML</div>
+                    </div>
+                    <div class="tech-member-card">
+                        <div class="tech-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4>O. VASAVI</h4>
+                        <div class="role">Assistant Professor – AI & ML</div>
+                    </div>
+                    <div class="tech-member-card">
+                        <div class="tech-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4>VIJAY SREE DHULIPALLA</h4>
+                        <div class="role">Assistant Professor – AI & ML</div>
+                    </div>
+                    <div class="tech-member-card">
+                        <div class="tech-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h4>LAKSHMINARAYANA</h4>
+                        <div class="role">Assistant Professor – AI & ML</div>
                     </div>
                 </div>
             </div>
@@ -2820,6 +3267,7 @@
                         <li>Computer Vision</li>
                         <li>Natural Language Processing</li>
                         <li>Big Data Analytics</li>
+                    </ul>
                 </div>
 
                 <div class="track-card">
@@ -2853,7 +3301,7 @@
         </div>
     </section>
 
-    <!-- Venue Section -->
+    <!-- Enhanced Venue Section with Specific Google Maps -->
     <section class="section fade-in" id="venue">
         <h2 class="section-title">Venue</h2>
         <div class="venue-container">
@@ -2884,7 +3332,7 @@
                 <div class="venue-map">
                     <div class="map-container">
                         <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.123456789!2d80.45678901234567!3d16.234567890123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4a755cb1234567%3A0x1234567890abcdef!2sKKR%20%26%20KSR%20Institute%20of%20Technology%20and%20Sciences!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.6234567890123!2d80.45678901234567!3d16.234567890123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4a755cb1234567%3A0x1234567890abcdef!2sKKR%20%26%20KSR%20Institute%20of%20Technology%20and%20Sciences!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
                             allowfullscreen="" 
                             loading="lazy" 
                             referrerpolicy="no-referrer-when-downgrade">
@@ -2901,7 +3349,9 @@
             <div class="footer-section">
                 <h4>Contact Information</h4>
                 <p><i class="fas fa-envelope"></i> info@icisct2026.org</p>
-                <p><i class="fas fa-phone"></i> +91-863-2344567</p>
+                <p><i class="fas fa-phone"></i>+91 9848508545</p>
+                <p><i class="fas fa-phone"></i>+91 9442740749</p>
+                <p><i class="fas fa-phone"></i>+91 8179811623</p>
                 <p><i class="fas fa-map-marker-alt"></i> Guntur, Andhra Pradesh, India</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -3156,20 +3606,20 @@
                     Here are the key dates for ICISCT 2026:<br><br>
                     
                     <strong>🗓️ Paper Submission:</strong><br>
-                    Deadline: <strong>January 15, 2026</strong><br><br>
+                    Deadline: <strong>January 16th, 2026</strong><br><br>
                     
                     <strong>📝 Review Results:</strong><br>
-                    Notification: <strong>February 10, 2026</strong><br><br>
+                    Notification: <strong>January 26th, 2026</strong><br><br>
                     
                     <strong>📄 Final Submission:</strong><br>
-                    Camera-ready: <strong>February 25, 2026</strong><br><br>
+                    Camera-ready: <strong>February 6th, 2026</strong><br><br>
                     
                     <strong>🎫 Registration Deadline:</strong><br>
-                    Early Bird: <strong>March 1, 2026</strong><br><br>
+                    Early Bird: <strong>February 16th, 2026</strong><br><br>
                     
                     <strong>🎪 Conference Dates:</strong><br>
-                    <strong>March 15-17, 2026</strong><br>
-                    (3 days of presentations and workshops)
+                    <strong>February 27th & 28th, 2026</strong><br>
+                    (2 days of presentations and workshops)
                 `);
             }
 
@@ -3182,7 +3632,7 @@
                     Andhra Pradesh, India<br><br>
                     
                     <strong>🌐 Venue Link:</strong><br>
-                    <a href="https://www.google.com/maps/search/KITS+Guntur" target="_blank" style="color: #f59e0b; text-decoration: underline;">📌 View on Google Maps</a><br><br>
+                    <a href="https://maps.app.goo.gl/mmbYuZKCdsN8AkzV9" target="_blank" style="color: #f59e0b; text-decoration: underline;">📌 View on Google Maps</a><br><br>
                     
                     <strong>🏨 Facilities Available:</strong><br>
                     • High-speed WiFi throughout campus<br>
