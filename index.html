@@ -469,12 +469,12 @@
 
         /* Hero Content - Right Aligned */
         .hero-content {
-            flex: 1;
-            z-index: 2;
-            position: relative;
-            padding: 0 2rem;
-            text-align: right;
-        }
+    flex: 1;
+    z-index: 2;
+    position: relative;
+    padding: 0 2rem;
+    text-align: center; /* THIS IS THE KEY CHANGE */
+}
 
         /* Reverted Hero Title to Original Styling */
         .hero h1 {
@@ -2356,8 +2356,8 @@
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="https://kits-cai-ncicdla25.netlify.app">Past Conferences</a></li>
-                <li><a href="paper.html">Paper Submission</a></li>
+                <li><a href="https://kits-cai-ncicdla25.netlify.app" target="_blank">Past Conferences</a></li>
+                <li><a href="paper.html" target="_blank">Paper Submission</a></li>
                 <li><a href="#speakers">Organizing Committee</a></li>
                 <li><a href="#topics">Topics</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -2388,13 +2388,15 @@
         </div>
         
         <div class="hero-content">
-   <h1>
-    <span>International Conference</span><br>
-    <span class="center-on-line">on</span><br>
-    <span>Intelligent Systems, Computing and Communication Technologies</span>
-</h1>
+  <div class="hero-content">
+    <h1>
+        International Conference<br>
+        on<br></h1>
+       <h2>Intelligent Systems, Computing and Communication Technologies
+    </h2>
     <p class="subtitle">Advancing AI Research for Tomorrow's Innovations</p>
-    <div class="date-location">
+    </div>
+        <div class="date-location">
         <div class="date-location-item">
             <i class="fas fa-calendar-alt"></i>
             <span>February 27th & 28th, 2026</span>
@@ -2549,6 +2551,22 @@
     <section class="section fade-in" id="speakers">
         <h2 class="section-title">Organizing Committee</h2>
         <div class="organizing-committee-container">
+              <!-- KEYNPTE SPEACKERS Section -->
+            <div class="committee-section convener-section">
+                <h3 class="committee-section-title">KEY NOTE SPEAKERS</h3>
+                <div class="speakers-grid">
+                    <div class="speaker-card">
+                        <div class="speaker-image">
+                            <img src="demo.jpg" alt="">
+                        </div>
+                        <div class="speaker-content">
+                            <h4>Will be updated soon . . . </h4>
+                            <div class="position"></div>
+                            <div class="affiliation">INDIA</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
             <!-- PATRONS Section -->
             <div class="committee-section patrons-section">
@@ -2649,7 +2667,7 @@
                         <div class="speaker-content">
                             <h4>Dr. D. Hari Krishna</h4>
                             <div class="position">Associate Professor</div>
-                            <div class="affiliation">AI & ML, KITS Guntur</div>
+                            <div class="affiliation">AI & ML Department, KITS Guntur</div>
                         </div>
                     </div>
                     <div class="speaker-card">
@@ -2659,7 +2677,7 @@
                         <div class="speaker-content">
                             <h4>Dr. S. Nagendram</h4>
                             <div class="position">Associate Professor</div>
-                            <div class="affiliation">AI & ML, KITS Guntur</div>
+                            <div class="affiliation">AI & ML Department, KITS Guntur</div>
                         </div>
                     </div>
                 </div>
@@ -2674,85 +2692,86 @@
                             <i class="fas fa-user"></i>
                         </div>
                         <h4>JOHN SAIDA MOHAMMAD</h4>
-                        <div class="role">Assistant Professor – AI & ML</div>
+                        <div class="role">Assistant Professor</div>
+                        <div class="role">AI & ML Department</div>
                     </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
                             <i class="fas fa-user"></i>
                         </div>
                         <h4>B. SRAVANTHI</h4>
-                        <div class="role">Assistant Professor – AI & ML</div>
-                    </div>
+<div class="role">Assistant Professor</div>
+                        <div class="role">AI & ML Department</div>                    </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
                             <i class="fas fa-user"></i>
                         </div>
                         <h4>K. ARCHANA</h4>
-                        <div class="role">Assistant Professor – AI & ML</div>
-                    </div>
+<div class="role">Assistant Professor</div>
+                        <div class="role">AI & ML Department</div>                    </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
                             <i class="fas fa-user"></i>
                         </div>
                         <h4>N. VIJAYALAKSHMI</h4>
-                        <div class="role">Assistant Professor – AI & ML</div>
-                    </div>
+<div class="role">Assistant Professor</div>
+                        <div class="role">AI & ML Department</div>                    </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
                             <i class="fas fa-user"></i>
                         </div>
                         <h4>P. BHARGAVI</h4>
-                        <div class="role">Assistant Professor – AI & ML</div>
-                    </div>
+<div class="role">Assistant Professor</div>
+                        <div class="role">AI & ML Department</div>                    </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
                             <i class="fas fa-user"></i>
                         </div>
                         <h4>A. SAI PAVANI</h4>
-                        <div class="role">Assistant Professor – AI & ML</div>
-                    </div>
+<div class="role">Assistant Professor</div>
+                        <div class="role">AI & ML Department</div>                    </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
                             <i class="fas fa-user"></i>
                         </div>
                         <h4>K. BHANU SRI</h4>
-                        <div class="role">Assistant Professor – AI & ML</div>
-                    </div>
+<div class="role">Assistant Professor</div>
+                        <div class="role">AI & ML Department</div>                    </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
                             <i class="fas fa-user"></i>
                         </div>
                         <h4>E. PADMAVATHI</h4>
-                        <div class="role">Assistant Professor – AI & ML</div>
-                    </div>
+<div class="role">Assistant Professor</div>
+                        <div class="role">AI & ML Department</div>                    </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
                             <i class="fas fa-user"></i>
                         </div>
                         <h4>CH. KRISHNAVENI</h4>
-                        <div class="role">Assistant Professor – AI & ML</div>
-                    </div>
+<div class="role">Assistant Professor</div>
+                        <div class="role">AI & ML Department</div>                    </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
                             <i class="fas fa-user"></i>
                         </div>
                         <h4>O. VASAVI</h4>
-                        <div class="role">Assistant Professor – AI & ML</div>
-                    </div>
+<div class="role">Assistant Professor</div>
+                        <div class="role">AI & ML Department</div>                    </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
                             <i class="fas fa-user"></i>
                         </div>
                         <h4>VIJAY SREE DHULIPALLA</h4>
-                        <div class="role">Assistant Professor – AI & ML</div>
-                    </div>
+<div class="role">Assistant Professor</div>
+                        <div class="role">AI & ML Department</div>                    </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
                             <i class="fas fa-user"></i>
                         </div>
                         <h4>LAKSHMINARAYANA</h4>
-                        <div class="role">Assistant Professor – AI & ML</div>
-                    </div>
+                        <div class="role">Assistant Professor,</div>
+                        <div class="role">AI & ML Department</div>                    </div>
                 </div>
             </div>
         </div>
@@ -2807,20 +2826,20 @@
     <!-- Footer -->
     <footer class="footer" id="contact">
         <div class="footer-content">
-            <div class="footer-section">
-                <h4>Contact Information</h4>
-                <p><i class="fas fa-envelope"></i> iciscct-26@kitsguntur.ac.in</p>
-                <p><i class="fas fa-phone"></i>+91 9848508545</p>
-                <p><i class="fas fa-phone"></i>+91 9442740749</p>
-                <p><i class="fas fa-phone"></i>+91 8179811623</p>
-                <p><i class="fas fa-map-marker-alt"></i> Guntur, Andhra Pradesh, India</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
+          <div class="footer-section">
+    <h4>Contact Information</h4>
+    <p><i class="fas fa-envelope"></i> iciscct-26@kitsguntur.ac.in</p>
+    <p><i class="fas fa-phone"></i><a href="https://wa.me/919848508545" target="_blank">+91 9848508545</a></p>
+    <p><i class="fas fa-phone"></i><a href="https://wa.me/919442740749" target="_blank">+91 9442740749</a></p>
+    <p><i class="fas fa-phone"></i><a href="https://wa.me/918179811623" target="_blank">+91 8179811623</a></p>
+    <p><i class="fas fa-map-marker-alt"></i> Guntur, Andhra Pradesh, India</p>
+    <div class="social-links">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+</div>
             <div class="footer-section">
                 <h4>Quick Links</h4>
                 <a href="#about">About Conference</a>
