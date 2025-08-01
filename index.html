@@ -1269,11 +1269,11 @@
             line-height: 1.5;
         }
 
-        /* FIXED: Organizing Committee Section - Enhanced Mobile Responsiveness */
+        /* FIXED: Organizing Committee Section - Enhanced Mobile Image Display */
         .organizing-committee-container {
             margin-top: 3rem;
             width: 100%;
-            min-height: 100vh;
+            min-height: auto;
             background: var(--bg-primary);
             padding: 2rem 0;
         }
@@ -1328,7 +1328,7 @@
             background: var(--gradient-pink);
         }
 
-        /* FIXED: Speakers Grid - Optimized for Mobile */
+        /* FIXED: Speakers Grid - Optimized for All Devices */
         .speakers-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1343,7 +1343,7 @@
             transform: none;
         }
 
-        /* FIXED: Speaker Card - Improved Mobile Performance */
+        /* FIXED: Speaker Card with Proper Image Display */
         .speaker-card {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(25px);
@@ -1372,18 +1372,44 @@
             box-shadow: var(--shadow-gold);
         }
 
+        /* FIXED: Speaker Image Container - Critical Fix for Mobile */
         .speaker-image {
-            height: 200px;
+            height: 220px;
+            width: 100%;
             background: var(--gradient-primary);
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
+        /* FIXED: Speaker Image - Proper Display on All Devices */
         .speaker-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: fit;
+            object-position: center;
             transition: transform 0.3s ease;
+            display: block;
+            background: #f0f0f0;
+        }
+
+        /* Fallback for missing images */
+        .speaker-image img[src=""], 
+        .speaker-image img:not([src]), 
+        .speaker-image img[src="demo.jpg"] {
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .speaker-image img[src="demo.jpg"]::after {
+            content: "Photo Coming Soon";
+            color: white;
+            font-size: 14px;
+            text-align: center;
         }
 
         .speaker-card:hover .speaker-image img {
@@ -1398,11 +1424,13 @@
             right: 0;
             height: 60%;
             background: linear-gradient(transparent, rgba(0,0,0,0.4));
+            pointer-events: none;
         }
 
         .speaker-content {
             padding: 1.5rem;
             position: relative;
+            background: inherit;
         }
 
         .speaker-content::before {
@@ -1421,6 +1449,7 @@
             font-weight: 600;
             margin-bottom: 0.5rem;
             color: var(--text-primary);
+            line-height: 1.3;
         }
 
         .speaker-card .position {
@@ -1430,12 +1459,14 @@
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            line-height: 1.2;
         }
 
         .speaker-card .affiliation {
             color: var(--accent-color);
             font-weight: 500;
             font-size: 0.8rem;
+            line-height: 1.2;
         }
 
         /* FIXED: Technical Team Cards - Optimized Performance */
@@ -1527,6 +1558,7 @@
             font-weight: 600;
             margin-bottom: 0.3rem;
             color: var(--text-primary);
+            line-height: 1.3;
         }
 
         .tech-member-card .role {
@@ -1535,6 +1567,7 @@
             font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            line-height: 1.2;
         }
 
         /* Track-based Topics Layout */
@@ -2164,7 +2197,7 @@
             transform: translateX(0);
         }
 
-        /* FIXED: Enhanced Mobile Responsive Design */
+        /* FIXED: Enhanced Mobile Responsive Design - Critical Image Fixes */
         @media (max-width: 768px) {
             .header {
                 width: calc(100% - 20px);
@@ -2279,15 +2312,16 @@
                 grid-template-columns: 1fr;
             }
 
-            /* FIXED: Mobile Organizing Committee Section */
+            /* FIXED: Mobile Organizing Committee Section - Critical Image Fixes */
             .organizing-committee-container {
-                padding: 1rem;
+                padding: 1rem 0.5rem;
                 min-height: auto;
+                background: var(--bg-primary);
             }
 
             .committee-section {
                 margin-bottom: 3rem;
-                padding: 0;
+                padding: 0 0.5rem;
             }
 
             .committee-section-title {
@@ -2299,23 +2333,77 @@
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
                 padding: 0;
+                max-width: 100%;
             }
 
             .speaker-card {
                 max-width: 100%;
-                margin: 0;
+                margin: 0 auto;
+                width: 100%;
+            }
+
+            /* CRITICAL: Mobile Image Fix */
+            .speaker-image {
+                height: 250px;
+                min-height: 250px;
+                width: 100%;
+                display: block;
+                position: relative;
+                background: var(--gradient-primary);
+            }
+
+            .speaker-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center top;
+                display: block;
+                border: none;
+                outline: none;
+            }
+
+            .speaker-content {
+                padding: 1.2rem;
+                min-height: 120px;
+            }
+
+            .speaker-card h4 {
+                font-size: 1.1rem;
+                margin-bottom: 0.5rem;
+                line-height: 1.3;
+            }
+
+            .speaker-card .position {
+                font-size: 0.85rem;
+                margin-bottom: 0.4rem;
+                line-height: 1.2;
+            }
+
+            .speaker-card .affiliation {
+                font-size: 0.75rem;
+                line-height: 1.2;
             }
 
             .technical-team-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
                 gap: 1rem;
                 padding: 0;
             }
 
             .tech-member-card {
                 max-width: 100%;
-                margin: 0;
+                margin: 0 auto;
                 padding: 1rem;
+            }
+
+            .tech-member-card h4 {
+                font-size: 1rem;
+                line-height: 1.2;
+            }
+
+            .tech-member-card .role {
+                font-size: 0.75rem;
+                line-height: 1.1;
             }
 
             .nav-container {
@@ -2360,30 +2448,67 @@
                 font-size: 0.9rem;
             }
 
-            /* FIXED: Extra Small Mobile Fixes */
+            /* FIXED: Extra Small Mobile Fixes - Critical Image Display */
             .organizing-committee-container {
-                padding: 0.5rem;
+                padding: 0.5rem 0.25rem;
+            }
+
+            .committee-section {
+                padding: 0 0.25rem;
             }
 
             .committee-section-title {
                 font-size: 1.6rem;
             }
 
-            .speaker-card,
-            .tech-member-card {
+            .speaker-card {
                 border-radius: 15px;
+                margin: 0 auto;
+                max-width: 100%;
+            }
+
+            .speaker-image {
+                height: 220px;
+                min-height: 220px;
+                border-radius: 15px 15px 0 0;
+            }
+
+            .speaker-image img {
+                border-radius: 15px 15px 0 0;
+            }
+
+            .speaker-content {
+                padding: 1rem;
+                border-radius: 0 0 15px 15px;
             }
 
             .technical-team-grid {
                 grid-template-columns: 1fr;
             }
+
+            .tech-member-card {
+                border-radius: 15px;
+                max-width: 100%;
+            }
         }
 
-        /* FIXED: Performance Optimizations */
+        /* FIXED: Performance Optimizations for Images */
         .speaker-card,
         .tech-member-card,
         .track-card {
             contain: layout style paint;
+        }
+
+        .speaker-image,
+        .speaker-image img {
+            contain: layout style;
+        }
+
+        /* Ensure images load correctly */
+        .speaker-image img {
+            image-rendering: auto;
+            image-rendering: crisp-edges;
+            image-rendering: -webkit-optimize-contrast;
         }
 
         /* Reduce motion for users who prefer it */
@@ -2395,6 +2520,15 @@
                 animation-iteration-count: 1 !important;
                 transition-duration: 0.01ms !important;
             }
+        }
+
+        /* Force GPU acceleration for smooth performance */
+        .speaker-card,
+        .tech-member-card,
+        .speaker-image {
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            perspective: 1000px;
         }
     </style>
 
@@ -2534,7 +2668,6 @@
                         </div>
                     </div>
                     <div class="timeline-event">
-                        <div class="timeline-dot"></div>
                         <div class="timeline-event-content">
                             <h4>Final Submission</h4>
                             <div class="date">February 6th, 2026</div>
@@ -2613,17 +2746,13 @@
         </div>
     </section>
 
-    <!-- FIXED: Enhanced Organizing Committee Section -->
-    <section class="section fade-in" id="speakers">
-        <h2 class="section-title">Organizing Committee</h2>
-        <div class="organizing-committee-container">
-            <!-- KEYNOTE SPEAKERS Section -->
+         <!-- KEYNOTE SPEAKERS Section -->
             <div class="committee-section convener-section">
                 <h3 class="committee-section-title">KEY NOTE SPEAKERS</h3>
                 <div class="speakers-grid">
                     <div class="speaker-card">
                         <div class="speaker-image">
-                            <img src="demo.jpg" alt="">
+                            <img src="demo.jpg" alt="Keynote Speaker" loading="lazy">
                         </div>
                         <div class="speaker-content">
                             <h4>Will be updated soon . . . </h4>
@@ -2633,6 +2762,11 @@
                     </div>
                 </div>
             </div>
+
+    <!-- FIXED: Enhanced Organizing Committee Section with Proper Image Display -->
+    <section class="section fade-in" id="speakers">
+        <h2 class="section-title">Organizing Committee</h2>
+        <div class="organizing-committee-container">
             
             <!-- PATRONS Section -->
             <div class="committee-section patrons-section">
@@ -2640,7 +2774,7 @@
                 <div class="speakers-grid">
                     <div class="speaker-card">
                         <div class="speaker-image">
-                            <img src="chairmansirkits.jpg" alt="Patron">
+                            <img src="chairmansirkits.jpg" alt="Sri K. Subba Rao" loading="lazy">
                         </div>
                         <div class="speaker-content">
                             <h4>Sri K. Subba Rao</h4>
@@ -2650,7 +2784,7 @@
                     </div>
                     <div class="speaker-card">
                         <div class="speaker-image">
-                            <img src="secretarysir.jpg" alt="Patron">
+                            <img src="secretarysir.jpg" alt="Sri K. Sekhar" loading="lazy">
                         </div>
                         <div class="speaker-content">
                             <h4>Sri K. Sekhar</h4>
@@ -2667,7 +2801,7 @@
                 <div class="speakers-grid">
                     <div class="speaker-card">
                         <div class="speaker-image">
-                            <img src="principal.jpeg" alt="Conference Chair">
+                            <img src="principal.jpeg" alt="Dr. P. Babu" loading="lazy">
                         </div>
                         <div class="speaker-content">
                             <h4>Dr. P. Babu</h4>
@@ -2677,7 +2811,7 @@
                     </div>
                     <div class="speaker-card">
                         <div class="speaker-image">
-                            <img src="Director.jpg" alt="Conference Chair">
+                            <img src="Director.jpg" alt="Dr. K. Haribabu" loading="lazy">
                         </div>
                         <div class="speaker-content">
                             <h4>Dr. K. Haribabu</h4>
@@ -2694,12 +2828,12 @@
                 <div class="speakers-grid">
                     <div class="speaker-card">
                         <div class="speaker-image">
-                            <img src="hhodsir.jpg" alt="Convener">
+                            <img src="hhodsir.jpg" alt="Dr. G. Murali" loading="lazy">
                         </div>
                         <div class="speaker-content">
                             <h4>Dr. G. Murali</h4>
                             <div class="position">PROFESSOR & HEAD, DEPARTMENT OF AI & ML</div>
-                            <div class="affiliation">AI & ML Department, KITS</div>
+                            <div class="affiliation">Department of CSE(AI & ML), KITS</div>
                         </div>
                     </div>
                 </div>
@@ -2711,12 +2845,12 @@
                 <div class="speakers-grid">
                     <div class="speaker-card">
                         <div class="speaker-image">
-                            <img src="Dr. Radha Krishna.jpeg.jpg" alt="Convener">
+                            <img src="Dr. Radha Krishna.jpeg.jpg" alt="Dr. S. Radhakrishnan" loading="lazy">
                         </div>
                         <div class="speaker-content">
                             <h4>Dr. S. Radhakrishnan</h4>
                             <div class="position">PROFESSOR, AI & ML</div>
-                            <div class="affiliation">AI & ML Department, KITS</div>
+                            <div class="affiliation">Department of CSE(AI & ML), KITS</div>
                         </div>
                     </div>
                 </div>
@@ -2728,22 +2862,22 @@
                 <div class="speakers-grid">
                     <div class="speaker-card">
                         <div class="speaker-image">
-                            <img src="harikrishnasir.jpg" alt="Co-Convener">
+                            <img src="harikrishnasir.jpg" alt="Dr. D. Hari Krishna" loading="lazy">
                         </div>
                         <div class="speaker-content">
                             <h4>Dr. D. Hari Krishna</h4>
                             <div class="position">Associate Professor</div>
-                            <div class="affiliation">AI & ML Department, KITS Guntur</div>
+                            <div class="affiliation">Department of CSE(AI & ML), KITS Guntur</div>
                         </div>
                     </div>
                     <div class="speaker-card">
                         <div class="speaker-image">
-                            <img src="Dr.Nagendram.png" alt="Co-Convener">
+                            <img src="Dr.Nagendram.png" alt="Dr. S. Nagendram" loading="lazy">
                         </div>
                         <div class="speaker-content">
                             <h4>Dr. S. Nagendram</h4>
                             <div class="position">Associate Professor</div>
-                            <div class="affiliation">AI & ML Department, KITS Guntur</div>
+                            <div class="affiliation">Department of CSE(AI & ML), KITS Guntur</div>
                         </div>
                     </div>
                 </div>
@@ -2759,7 +2893,7 @@
                         </div>
                         <h4>JOHN SAIDA MOHAMMAD</h4>
                         <div class="role">Assistant Professor</div>
-                        <div class="role">AI & ML Department</div>
+                        <div class="role">Department CSE(AI & ML)</div>
                     </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
@@ -2767,7 +2901,7 @@
                         </div>
                         <h4>B. SRAVANTHI</h4>
                         <div class="role">Assistant Professor</div>
-                        <div class="role">AI & ML Department</div>
+                        <div class="role">Department CSE(AI & ML)</div>
                     </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
@@ -2775,7 +2909,7 @@
                         </div>
                         <h4>K. ARCHANA</h4>
                         <div class="role">Assistant Professor</div>
-                        <div class="role">AI & ML Department</div>
+                        <div class="role">Department CSE(AI & ML)</div>
                     </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
@@ -2783,7 +2917,7 @@
                         </div>
                         <h4>N. VIJAYALAKSHMI</h4>
                         <div class="role">Assistant Professor</div>
-                        <div class="role">AI & ML Department</div>
+                        <div class="role">Department CSE(AI & ML)</div>
                     </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
@@ -2791,7 +2925,7 @@
                         </div>
                         <h4>P. BHARGAVI</h4>
                         <div class="role">Assistant Professor</div>
-                        <div class="role">AI & ML Department</div>
+                        <div class="role">Department CSE(AI & ML)</div>
                     </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
@@ -2799,7 +2933,7 @@
                         </div>
                         <h4>A. SAI PAVANI</h4>
                         <div class="role">Assistant Professor</div>
-                        <div class="role">AI & ML Department</div>
+                        <div class="role">Department CSE(AI & ML)</div>
                     </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
@@ -2807,7 +2941,7 @@
                         </div>
                         <h4>K. BHANU SRI</h4>
                         <div class="role">Assistant Professor</div>
-                        <div class="role">AI & ML Department</div>
+                        <div class="role">Department CSE(AI & ML)</div>
                     </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
@@ -2815,7 +2949,7 @@
                         </div>
                         <h4>E. PADMAVATHI</h4>
                         <div class="role">Assistant Professor</div>
-                        <div class="role">AI & ML Department</div>
+                        <div class="role">Department CSE(AI & ML)</div>
                     </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
@@ -2823,7 +2957,7 @@
                         </div>
                         <h4>CH. KRISHNAVENI</h4>
                         <div class="role">Assistant Professor</div>
-                        <div class="role">AI & ML Department</div>
+                        <div class="role">Department CSE(AI & ML)</div>
                     </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
@@ -2831,7 +2965,7 @@
                         </div>
                         <h4>O. VASAVI</h4>
                         <div class="role">Assistant Professor</div>
-                        <div class="role">AI & ML Department</div>
+                        <div class="role">Department CSE(AI & ML)</div>
                     </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
@@ -2839,7 +2973,7 @@
                         </div>
                         <h4>VIJAY SREE DHULIPALLA</h4>
                         <div class="role">Assistant Professor</div>
-                        <div class="role">AI & ML Department</div>
+                        <div class="role">Department CSE(AI & ML)</div>
                     </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
@@ -2847,7 +2981,7 @@
                         </div>
                         <h4>LAKSHMINARAYANA</h4>
                         <div class="role">Assistant Professor</div>
-                        <div class="role">AI & ML Department</div>
+                        <div class="role">Department CSE(AI & ML)</div>
                     </div>
                 </div>
             </div>
@@ -2936,7 +3070,7 @@
     </footer>
 
     <script>
-        // Enhanced Theme Toggle with proper body background
+        // Enhanced Theme Toggle
         const themeToggle = document.querySelector('.theme-toggle');
         const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
 
@@ -3047,6 +3181,25 @@
             timelineObserver.observe(timelineContainer);
         }
 
+        // FIXED: Image Loading Error Handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('.speaker-image img');
+            images.forEach(img => {
+                img.addEventListener('error', function() {
+                    console.log('Image failed to load:', this.src);
+                    this.style.display = 'none';
+                    const parent = this.parentElement;
+                    parent.style.background = 'var(--gradient-primary)';
+                    parent.innerHTML = '<div style="display: flex; align-items: center; justify-content: center; height: 100%; color: white; font-size: 14px; text-align: center;">Photo<br>Coming Soon</div>';
+                });
+                
+                img.addEventListener('load', function() {
+                    console.log('Image loaded successfully:', this.src);
+                    this.style.opacity = '1';
+                });
+            });
+        });
+
         // FIXED: Optimized Card Interactions
         document.querySelectorAll('.speaker-card, .tech-member-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
@@ -3064,6 +3217,7 @@
         💬 Tawk.to Chat Widget is integrated
         🎨 Theme: ${currentTheme || 'light'}
         📱 Mobile Responsive: ✅ FIXED
+        🖼️ Image Display: ✅ OPTIMIZED
         ♿ Accessibility: ✅
         🚀 Performance: ✅ OPTIMIZED
         `);
