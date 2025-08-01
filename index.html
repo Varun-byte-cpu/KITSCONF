@@ -469,12 +469,12 @@
 
         /* Hero Content - Right Aligned */
         .hero-content {
-    flex: 1;
-    z-index: 2;
-    position: relative;
-    padding: 0 2rem;
-    text-align: center; /* THIS IS THE KEY CHANGE */
-}
+            flex: 1;
+            z-index: 2;
+            position: relative;
+            padding: 0 2rem;
+            text-align: center;
+        }
 
         /* Reverted Hero Title to Original Styling */
         .hero h1 {
@@ -507,7 +507,7 @@
             opacity: 0;
             animation: heroDateReveal 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.8s forwards;
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
             gap: 2rem;
             flex-wrap: wrap;
             transform: translateY(40px);
@@ -564,7 +564,7 @@
         .cta-buttons {
             display: flex;
             gap: 1.5rem;
-            justify-content: flex-end;
+            justify-content: center;
             flex-wrap: wrap;
             opacity: 0;
             animation: heroButtonsReveal 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 2.8s forwards;
@@ -1269,13 +1269,19 @@
             line-height: 1.5;
         }
 
-        /* Organizing Committee Section - Enhanced with New Subsections */
+        /* FIXED: Organizing Committee Section - Enhanced Mobile Responsiveness */
         .organizing-committee-container {
             margin-top: 3rem;
+            width: 100%;
+            min-height: 100vh;
+            background: var(--bg-primary);
+            padding: 2rem 0;
         }
 
         .committee-section {
             margin-bottom: 4rem;
+            width: 100%;
+            padding: 0 1rem;
         }
 
         .committee-section-title {
@@ -1286,6 +1292,8 @@
             margin-bottom: 2rem;
             color: var(--primary-color);
             position: relative;
+            opacity: 1;
+            visibility: visible;
         }
 
         .committee-section-title::after {
@@ -1320,16 +1328,22 @@
             background: var(--gradient-pink);
         }
 
+        /* FIXED: Speakers Grid - Optimized for Mobile */
         .speakers-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 280px));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             justify-content: center;
-            opacity: 0;
-            transform: translateY(40px);
-            animation: speakersGridReveal 1s ease forwards;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
         }
 
+        /* FIXED: Speaker Card - Improved Mobile Performance */
         .speaker-card {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(25px);
@@ -1337,13 +1351,15 @@
             overflow: hidden;
             box-shadow: var(--shadow-glass);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
-            opacity: 0;
-            transform: translateY(60px) scale(0.9);
-            animation: speakerCardReveal 1s ease forwards;
-            width: 280px;
-            max-width: 280px;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+            will-change: transform;
         }
 
         [data-theme="dark"] .speaker-card {
@@ -1351,13 +1367,8 @@
             border: 1px solid rgba(51, 65, 85, 0.3);
         }
 
-        .speaker-card:nth-child(1) { animation-delay: 0.1s; }
-        .speaker-card:nth-child(2) { animation-delay: 0.2s; }
-        .speaker-card:nth-child(3) { animation-delay: 0.3s; }
-        .speaker-card:nth-child(4) { animation-delay: 0.4s; }
-
         .speaker-card:hover {
-            transform: translateY(-20px) rotateY(8deg) scale(1.08);
+            transform: translateY(-10px) scale(1.02);
             box-shadow: var(--shadow-gold);
         }
 
@@ -1371,12 +1382,12 @@
         .speaker-image img {
             width: 100%;
             height: 100%;
-            object-fit: fit;
-            transition: all 0.8s ease;
+            object-fit: cover;
+            transition: transform 0.3s ease;
         }
 
         .speaker-card:hover .speaker-image img {
-            transform: scale(1.15);
+            transform: scale(1.05);
         }
 
         .speaker-image::after {
@@ -1427,13 +1438,18 @@
             font-size: 0.8rem;
         }
 
-        /* Technical Team Cards with Enhanced Effects - All User Icons */
+        /* FIXED: Technical Team Cards - Optimized Performance */
         .technical-team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 280px));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
             justify-content: center;
             margin-top: 3rem;
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 1rem;
         }
 
         .tech-member-card {
@@ -1444,33 +1460,22 @@
             text-align: center;
             box-shadow: var(--shadow-glass);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
-            opacity: 0;
-            transform: translateY(40px);
-            animation: techCardReveal 0.8s ease forwards;
-            width: 280px;
-            max-width: 280px;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            opacity: 1;
+            visibility: visible;
+            transform: none;
+            will-change: transform;
         }
 
         [data-theme="dark"] .tech-member-card {
             background: rgba(30, 41, 59, 0.95);
             border: 1px solid rgba(51, 65, 85, 0.3);
         }
-
-        .tech-member-card:nth-child(1) { animation-delay: 0.1s; }
-        .tech-member-card:nth-child(2) { animation-delay: 0.2s; }
-        .tech-member-card:nth-child(3) { animation-delay: 0.3s; }
-        .tech-member-card:nth-child(4) { animation-delay: 0.4s; }
-        .tech-member-card:nth-child(5) { animation-delay: 0.5s; }
-        .tech-member-card:nth-child(6) { animation-delay: 0.6s; }
-        .tech-member-card:nth-child(7) { animation-delay: 0.7s; }
-        .tech-member-card:nth-child(8) { animation-delay: 0.8s; }
-        .tech-member-card:nth-child(9) { animation-delay: 0.9s; }
-        .tech-member-card:nth-child(10) { animation-delay: 1.0s; }
-        .tech-member-card:nth-child(11) { animation-delay: 1.1s; }
-        .tech-member-card:nth-child(12) { animation-delay: 1.2s; }
 
         .tech-member-card::before {
             content: '';
@@ -1481,7 +1486,7 @@
             height: 4px;
             background: var(--gradient-tertiary);
             transform: scaleX(0);
-            transition: transform 0.6s ease;
+            transition: transform 0.3s ease;
         }
 
         .tech-member-card:hover::before {
@@ -1489,7 +1494,7 @@
         }
 
         .tech-member-card:hover {
-            transform: translateY(-15px) scale(1.05);
+            transform: translateY(-8px) scale(1.02);
             box-shadow: var(--shadow-gold);
         }
 
@@ -1502,12 +1507,12 @@
             align-items: center;
             justify-content: center;
             margin: 0 auto 1rem;
-            transition: all 0.5s ease;
+            transition: transform 0.3s ease;
             box-shadow: var(--shadow-lg);
         }
 
         .tech-member-card:hover .tech-avatar {
-            transform: scale(1.2) rotate(360deg);
+            transform: scale(1.1) rotate(180deg);
             box-shadow: var(--shadow-gold);
         }
 
@@ -2070,17 +2075,6 @@
             }
         }
 
-        @keyframes speakersGridReveal {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         @keyframes speakerCardReveal {
             from {
                 opacity: 0;
@@ -2170,7 +2164,7 @@
             transform: translateX(0);
         }
 
-        /* Responsive Design */
+        /* FIXED: Enhanced Mobile Responsive Design */
         @media (max-width: 768px) {
             .header {
                 width: calc(100% - 20px);
@@ -2281,10 +2275,47 @@
             }
 
             .highlights-grid,
-            .speakers-grid,
-            .tracks-grid,
-            .technical-team-grid {
+            .tracks-grid {
                 grid-template-columns: 1fr;
+            }
+
+            /* FIXED: Mobile Organizing Committee Section */
+            .organizing-committee-container {
+                padding: 1rem;
+                min-height: auto;
+            }
+
+            .committee-section {
+                margin-bottom: 3rem;
+                padding: 0;
+            }
+
+            .committee-section-title {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .speakers-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0;
+            }
+
+            .speaker-card {
+                max-width: 100%;
+                margin: 0;
+            }
+
+            .technical-team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1rem;
+                padding: 0;
+            }
+
+            .tech-member-card {
+                max-width: 100%;
+                margin: 0;
+                padding: 1rem;
             }
 
             .nav-container {
@@ -2327,6 +2358,42 @@
             .btn {
                 padding: 0.8rem 1.5rem;
                 font-size: 0.9rem;
+            }
+
+            /* FIXED: Extra Small Mobile Fixes */
+            .organizing-committee-container {
+                padding: 0.5rem;
+            }
+
+            .committee-section-title {
+                font-size: 1.6rem;
+            }
+
+            .speaker-card,
+            .tech-member-card {
+                border-radius: 15px;
+            }
+
+            .technical-team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* FIXED: Performance Optimizations */
+        .speaker-card,
+        .tech-member-card,
+        .track-card {
+            contain: layout style paint;
+        }
+
+        /* Reduce motion for users who prefer it */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
@@ -2388,35 +2455,33 @@
         </div>
         
         <div class="hero-content">
-  <div class="hero-content">
-    <h1>
-        International Conference<br>
-        on<br></h1>
-       <h2>Intelligent Systems, Computing and Communication Technologies
-    </h2>
-    <p class="subtitle">Advancing AI Research for Tomorrow's Innovations</p>
-    </div>
-        <div class="date-location">
-        <div class="date-location-item">
-            <i class="fas fa-calendar-alt"></i>
-            <span>February 27th & 28th, 2026</span>
+            <h1>
+                International Conference<br>
+                on<br>
+                Intelligent Systems, Computing and Communication Technologies
+            </h1>
+            <p class="subtitle">Advancing AI Research for Tomorrow's Innovations</p>
+            <div class="date-location">
+                <div class="date-location-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>February 27th & 28th, 2026</span>
+                </div>
+                <div class="date-location-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Guntur, India</span>
+                </div>
+            </div>
+            <div class="cta-buttons">
+                <a href="#topics" class="btn btn-secondary">
+                    <i class="fas fa-paper-plane"></i>
+                    Submit Paper
+                </a>
+                <a href="#contact" class="btn btn-register">
+                    <i class="fas fa-user-plus"></i>
+                    Register Now
+                </a>
+            </div>
         </div>
-        <div class="date-location-item">
-            <i class="fas fa-map-marker-alt"></i>
-            <span>Guntur, India</span>
-        </div>
-    </div>
-    <div class="cta-buttons">
-        <a href="#topics" class="btn btn-secondary">
-            <i class="fas fa-paper-plane"></i>
-            Submit Paper
-        </a>
-        <a href="#contact" class="btn btn-register">
-            <i class="fas fa-user-plus"></i>
-            Register Now
-        </a>
-    </div>
-</div>
     </section>
 
     <!-- Classical Professional About Section - Complete Redesign -->
@@ -2431,15 +2496,15 @@
 
             <div class="classical-content-wrapper">
                 <div class="classical-paragraph">
-                    The International Conference on Intelligent Systems, Computing and Communication Technologies (ICISCCT) represents a distinguished academic gathering that brings together leading researchers, academicians, industry professionals, and innovators from around the globe. This prestigious conference serves as a premier platform for the exchange and dissemination of cutting-edge research findings, methodologies, and applications in the rapidly evolving domains of artificial intelligence, advanced computing paradigms, and next-generation communication technologies.
+                    The International Conference on Intelligent Systems, Computing and Communication Technologies (ICISCT) represents a distinguished academic gathering that brings together leading researchers, academicians, industry professionals, and innovators from around the globe. This prestigious conference serves as a premier platform for the exchange and dissemination of cutting-edge research findings, methodologies, and applications in the rapidly evolving domains of artificial intelligence, advanced computing paradigms, and next-generation communication technologies.
                 </div>
 
                 <div class="classical-paragraph">
-                    In an era marked by unprecedented technological advancement, ICISCCT addresses the critical need for interdisciplinary collaboration and knowledge sharing. The conference encompasses a comprehensive spectrum of research areas, including machine learning algorithms, deep learning architectures, natural language processing, computer vision, big data analytics, cloud and edge computing, Internet of Things (IoT), 5G/6G wireless communications, and cyber-physical systems. Through rigorous peer review and scholarly discourse, ICISCCT maintains the highest standards of academic excellence while fostering innovation that addresses real-world challenges.
+                    In an era marked by unprecedented technological advancement, ICISCT addresses the critical need for interdisciplinary collaboration and knowledge sharing. The conference encompasses a comprehensive spectrum of research areas, including machine learning algorithms, deep learning architectures, natural language processing, computer vision, big data analytics, cloud and edge computing, Internet of Things (IoT), 5G/6G wireless communications, and cyber-physical systems. Through rigorous peer review and scholarly discourse, ICISCT maintains the highest standards of academic excellence while fostering innovation that addresses real-world challenges.
                 </div>
 
                 <div class="classical-paragraph">
-                    The conference program features keynote presentations by internationally renowned experts, technical paper sessions showcasing original research contributions, panel discussions on emerging trends, and specialized workshops designed to facilitate hands-on learning and professional development. ICISCCT is committed to advancing the frontiers of knowledge in intelligent systems and communication technologies, contributing to the development of sustainable, efficient, and transformative solutions that will shape the future of our digital society.
+                    The conference program features keynote presentations by internationally renowned experts, technical paper sessions showcasing original research contributions, panel discussions on emerging trends, and specialized workshops designed to facilitate hands-on learning and professional development. ICISCT is committed to advancing the frontiers of knowledge in intelligent systems and communication technologies, contributing to the development of sustainable, efficient, and transformative solutions that will shape the future of our digital society.
                 </div>
             </div>
         </div>
@@ -2496,6 +2561,7 @@
             </div>
         </div>
     </section>
+
     <!-- Topics of Interest - Track-based System -->
     <section class="section fade-in" id="topics">
         <h2 class="section-title">Topics of Interest</h2>
@@ -2547,11 +2613,11 @@
         </div>
     </section>
 
-    <!-- Enhanced Organizing Committee Section with New Subsections -->
+    <!-- FIXED: Enhanced Organizing Committee Section -->
     <section class="section fade-in" id="speakers">
         <h2 class="section-title">Organizing Committee</h2>
         <div class="organizing-committee-container">
-              <!-- KEYNPTE SPEACKERS Section -->
+            <!-- KEYNOTE SPEAKERS Section -->
             <div class="committee-section convener-section">
                 <h3 class="committee-section-title">KEY NOTE SPEAKERS</h3>
                 <div class="speakers-grid">
@@ -2683,7 +2749,7 @@
                 </div>
             </div>
 
-            <!-- Technical Team Section with All User Icons -->
+            <!-- Technical Team Section -->
             <div class="committee-section technical-section">
                 <h3 class="committee-section-title">Technical Team</h3>
                 <div class="technical-team-grid">
@@ -2700,84 +2766,93 @@
                             <i class="fas fa-user"></i>
                         </div>
                         <h4>B. SRAVANTHI</h4>
-<div class="role">Assistant Professor</div>
-                        <div class="role">AI & ML Department</div>                    </div>
+                        <div class="role">Assistant Professor</div>
+                        <div class="role">AI & ML Department</div>
+                    </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
                             <i class="fas fa-user"></i>
                         </div>
                         <h4>K. ARCHANA</h4>
-<div class="role">Assistant Professor</div>
-                        <div class="role">AI & ML Department</div>                    </div>
+                        <div class="role">Assistant Professor</div>
+                        <div class="role">AI & ML Department</div>
+                    </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
                             <i class="fas fa-user"></i>
                         </div>
                         <h4>N. VIJAYALAKSHMI</h4>
-<div class="role">Assistant Professor</div>
-                        <div class="role">AI & ML Department</div>                    </div>
+                        <div class="role">Assistant Professor</div>
+                        <div class="role">AI & ML Department</div>
+                    </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
                             <i class="fas fa-user"></i>
                         </div>
                         <h4>P. BHARGAVI</h4>
-<div class="role">Assistant Professor</div>
-                        <div class="role">AI & ML Department</div>                    </div>
+                        <div class="role">Assistant Professor</div>
+                        <div class="role">AI & ML Department</div>
+                    </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
                             <i class="fas fa-user"></i>
                         </div>
                         <h4>A. SAI PAVANI</h4>
-<div class="role">Assistant Professor</div>
-                        <div class="role">AI & ML Department</div>                    </div>
+                        <div class="role">Assistant Professor</div>
+                        <div class="role">AI & ML Department</div>
+                    </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
                             <i class="fas fa-user"></i>
                         </div>
                         <h4>K. BHANU SRI</h4>
-<div class="role">Assistant Professor</div>
-                        <div class="role">AI & ML Department</div>                    </div>
+                        <div class="role">Assistant Professor</div>
+                        <div class="role">AI & ML Department</div>
+                    </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
                             <i class="fas fa-user"></i>
                         </div>
                         <h4>E. PADMAVATHI</h4>
-<div class="role">Assistant Professor</div>
-                        <div class="role">AI & ML Department</div>                    </div>
+                        <div class="role">Assistant Professor</div>
+                        <div class="role">AI & ML Department</div>
+                    </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
                             <i class="fas fa-user"></i>
                         </div>
                         <h4>CH. KRISHNAVENI</h4>
-<div class="role">Assistant Professor</div>
-                        <div class="role">AI & ML Department</div>                    </div>
+                        <div class="role">Assistant Professor</div>
+                        <div class="role">AI & ML Department</div>
+                    </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
                             <i class="fas fa-user"></i>
                         </div>
                         <h4>O. VASAVI</h4>
-<div class="role">Assistant Professor</div>
-                        <div class="role">AI & ML Department</div>                    </div>
+                        <div class="role">Assistant Professor</div>
+                        <div class="role">AI & ML Department</div>
+                    </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
                             <i class="fas fa-user"></i>
                         </div>
                         <h4>VIJAY SREE DHULIPALLA</h4>
-<div class="role">Assistant Professor</div>
-                        <div class="role">AI & ML Department</div>                    </div>
+                        <div class="role">Assistant Professor</div>
+                        <div class="role">AI & ML Department</div>
+                    </div>
                     <div class="tech-member-card">
                         <div class="tech-avatar">
                             <i class="fas fa-user"></i>
                         </div>
                         <h4>LAKSHMINARAYANA</h4>
-                        <div class="role">Assistant Professor,</div>
-                        <div class="role">AI & ML Department</div>                    </div>
+                        <div class="role">Assistant Professor</div>
+                        <div class="role">AI & ML Department</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-    
 
     <!-- Enhanced Venue Section with Specific Google Maps -->
     <section class="section fade-in" id="venue">
@@ -2826,26 +2901,26 @@
     <!-- Footer -->
     <footer class="footer" id="contact">
         <div class="footer-content">
-          <div class="footer-section">
-    <h4>Contact Information</h4>
-    <p><i class="fas fa-envelope"></i> iciscct-26@kitsguntur.ac.in</p>
-    <p><i class="fas fa-phone"></i><a href="https://wa.me/919848508545" target="_blank">+91 9848508545</a></p>
-    <p><i class="fas fa-phone"></i><a href="https://wa.me/919442740749" target="_blank">+91 9442740749</a></p>
-    <p><i class="fas fa-phone"></i><a href="https://wa.me/918179811623" target="_blank">+91 8179811623</a></p>
-    <p><i class="fas fa-map-marker-alt"></i> Guntur, Andhra Pradesh, India</p>
-    <div class="social-links">
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-    </div>
-</div>
+            <div class="footer-section">
+                <h4>Contact Information</h4>
+                <p><i class="fas fa-envelope"></i> iciscct-26@kitsguntur.ac.in</p>
+                <p><i class="fas fa-phone"></i><a href="https://wa.me/919848508545" target="_blank">+91 9848508545</a></p>
+                <p><i class="fas fa-phone"></i><a href="https://wa.me/919442740749" target="_blank">+91 9442740749</a></p>
+                <p><i class="fas fa-phone"></i><a href="https://wa.me/918179811623" target="_blank">+91 8179811623</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Guntur, Andhra Pradesh, India</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
             <div class="footer-section">
                 <h4>Quick Links</h4>
                 <a href="#about">About Conference</a>
-                <a href="#highlights">Highlights</a>
                 <a href="#dates">Important Dates</a>
                 <a href="#speakers">Organizing Committee</a>
+                <a href="#topics">Topics</a>
             </div>
             <div class="footer-section">
                 <h4>Resources</h4>
@@ -2854,16 +2929,9 @@
                 <a href="#">Travel Information</a>
                 <a href="#">Accommodation</a>
             </div>
-            <!--<div class="footer-section">
-                <h4>Partners</h4>
-                <a href="#">IEEE</a>
-                <a href="#">ACM</a>
-                <a href="#">Springer</a>
-                <a href="#">Elsevier</a>
-            </div>-->
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 ICISCCT. All rights reserved.</p>
+            <p>&copy; 2026 ICISCT. All rights reserved.</p>
         </div>
     </footer>
 
@@ -2892,7 +2960,7 @@
             }
         });
 
-        // Enhanced Header Effects with Precise Timeline
+        // Enhanced Header Effects
         let lastScrollTop = 0;
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
@@ -2941,28 +3009,16 @@
             });
         });
 
-        // Enhanced Scroll Animations with Staggered Timeline
+        // FIXED: Optimized Scroll Animations
         const observerOptions = {
             threshold: 0.1,
-            rootMargin: '0px 0px -150px 0px'
+            rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
+            entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                        
-                        // Trigger child animations with precise staggered delays
-                        const children = entry.target.querySelectorAll('.highlight-card, .speaker-card, .track-card, .tech-member-card');
-                        children.forEach((child, childIndex) => {
-                            setTimeout(() => {
-                                child.style.animationPlayState = 'running';
-                                child.style.opacity = '1';
-                                child.style.transform = 'translateY(0) scale(1)';
-                            }, childIndex * 200);
-                        });
-                    }, index * 300);
+                    entry.target.classList.add('visible');
                 }
             });
         }, observerOptions);
@@ -2971,31 +3027,17 @@
             observer.observe(el);
         });
 
-        // Enhanced Timeline Animation with Precise Control
+        // FIXED: Simplified Timeline Animation
         const timelineObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const timelineEvents = entry.target.querySelectorAll('.timeline-event');
-                    const timelineDots = entry.target.querySelectorAll('.timeline-dot');
-                    
-                    // Start timeline progress animation
-                    setTimeout(() => {
-                        // Animate each timeline event with precise delays
-                        timelineEvents.forEach((event, index) => {
-                            setTimeout(() => {
-                                event.style.animationPlayState = 'running';
-                                event.style.opacity = '1';
-                                event.style.transform = 'translateY(0)';
-                            }, index * 200);
-                        });
-                        
-                        // Animate dots with slight delay after events
-                        timelineDots.forEach((dot, index) => {
-                            setTimeout(() => {
-                                dot.style.animationPlayState = 'running';
-                            }, (index * 200) + 100);
-                        });
-                    }, 500);
+                    timelineEvents.forEach((event, index) => {
+                        setTimeout(() => {
+                            event.style.opacity = '1';
+                            event.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    });
                 }
             });
         }, { threshold: 0.3 });
@@ -3005,150 +3047,15 @@
             timelineObserver.observe(timelineContainer);
         }
 
-        // Enhanced Card Interactions with Timeline
-        document.querySelectorAll('.highlight-card, .speaker-card, .track-card, .tech-member-card').forEach(card => {
-            card.addEventListener('mouseenter', function(e) {
-                const rect = this.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                this.style.setProperty('--mouse-x', `${x}px`);
-                this.style.setProperty('--mouse-y', `${y}px`);
-                
-                // Enhanced glow effect with timeline
-                this.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+        // FIXED: Optimized Card Interactions
+        document.querySelectorAll('.speaker-card, .tech-member-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
             });
             
             card.addEventListener('mouseleave', function() {
-                this.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                this.style.transform = 'translateY(0) scale(1)';
             });
-        });
-
-        // Enhanced Button Effects with Timeline
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.width = ripple.style.height = size + 'px';
-                ripple.style.left = x + 'px';
-                ripple.style.top = y + 'px';
-                ripple.classList.add('ripple');
-                
-                this.appendChild(ripple);
-                
-                // Remove ripple with timeline
-                setTimeout(() => {
-                    ripple.remove();
-                }, 1000);
-            });
-        });
-
-        // Enhanced Ripple Styles with Timeline
-        const rippleStyle = document.createElement('style');
-        rippleStyle.textContent = `
-            .btn {
-                position: relative;
-                overflow: hidden;
-            }
-            
-            .ripple {
-                position: absolute;
-                border-radius: 50%;
-                background: radial-gradient(circle, rgba(245, 158, 11, 0.6) 0%, rgba(30, 58, 138, 0.4) 70%);
-                transform: scale(0);
-                animation: enhancedRipple 1s cubic-bezier(0.4, 0, 0.2, 1);
-                pointer-events: none;
-            }
-            
-            @keyframes enhancedRipple {
-                0% {
-                    transform: scale(0);
-                    opacity: 1;
-                }
-                50% {
-                    transform: scale(2);
-                    opacity: 0.8;
-                }
-                100% {
-                    transform: scale(5);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(rippleStyle);
-
-        // Enhanced Timeline Interaction with Precise Control
-        document.querySelectorAll('.timeline-event-content').forEach((content, index) => {
-            content.addEventListener('click', function() {
-                // Create enhanced ripple effect
-                const ripple = document.createElement('div');
-                ripple.style.position = 'absolute';
-                ripple.style.borderRadius = '50%';
-                ripple.style.background = 'rgba(245, 158, 11, 0.4)';
-                ripple.style.transform = 'scale(0)';
-                ripple.style.animation = 'timelineRipple 1s ease-out';
-                ripple.style.pointerEvents = 'none';
-                ripple.style.width = '100px';
-                ripple.style.height = '100px';
-                ripple.style.left = '50%';
-                ripple.style.top = '50%';
-                ripple.style.marginLeft = '-50px';
-                ripple.style.marginTop = '-50px';
-                
-                this.appendChild(ripple);
-                
-                // Enhanced hover effect with timeline
-                this.style.transform = 'translateY(-10px) scale(1.05)';
-                this.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 1000);
-            });
-        });
-
-        // Add timeline ripple animation
-        const timelineRippleStyle = document.createElement('style');
-        timelineRippleStyle.textContent = `
-            @keyframes timelineRipple {
-                to {
-                    transform: scale(5);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(timelineRippleStyle);
-
-        // Enhanced Intersection Observer for Better Timeline Control
-        const enhancedObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const element = entry.target;
-                    
-                    // Add specific animations based on element type
-                    if (element.classList.contains('highlight-card')) {
-                        element.style.animation = 'highlightCardReveal 0.8s ease forwards';
-                    } else if (element.classList.contains('speaker-card')) {
-                        element.style.animation = 'speakerCardReveal 0.8s ease forwards';
-                    } else if (element.classList.contains('track-card')) {
-                        element.style.animation = 'trackCardReveal 0.6s ease forwards';
-                    } else if (element.classList.contains('tech-member-card')) {
-                        element.style.animation = 'techCardReveal 0.8s ease forwards';
-                    }
-                }
-            });
-        }, {
-            threshold: 0.2,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        // Observe all animated elements
-        document.querySelectorAll('.highlight-card, .speaker-card, .track-card, .tech-member-card').forEach(el => {
-            enhancedObserver.observe(el);
         });
 
         // Console welcome message
@@ -3156,8 +3063,9 @@
         🎉 Welcome to ICISCCT 2026! 
         💬 Tawk.to Chat Widget is integrated
         🎨 Theme: ${currentTheme || 'light'}
-        📱 Mobile Responsive: ✅
+        📱 Mobile Responsive: ✅ FIXED
         ♿ Accessibility: ✅
+        🚀 Performance: ✅ OPTIMIZED
         `);
     </script>
 </body>
